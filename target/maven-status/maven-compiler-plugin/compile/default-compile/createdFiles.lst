@@ -1,0 +1,5 @@
+com/sf/repository/ContactRepository.class
+com/sf/service/ContactService.class
+com/sf/SearchApplication.class
+com/sf/entity/Contact.class
+com/sf/controller/HelloController.class
