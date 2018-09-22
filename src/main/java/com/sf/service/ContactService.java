@@ -6,8 +6,15 @@
 package com.sf.service;
 
 import com.sf.entity.Contact;
+import com.sf.model.ContactsWrapper;
 import com.sf.repository.ContactRepository;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,11 +40,20 @@ public class ContactService {
         return contactRepository.findById(id).orElse(null);
     }
 
-    public List<Contact> getContactsRegular(String nameFilter) {
-        return contactRepository.findAll()
-                .stream()
+    public ContactsWrapper getContactsRegular(String nameFilter) {
+        Future<List<Contact>> future = contactRepository.findAllContacts();
+        List<Contact> contacts = Collections.emptyList();
+        try {
+            contacts = future.get();
+        } catch (InterruptedException | ExecutionException ex) {
+            Logger.getLogger(ContactService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        final List<Contact> filteredContacts = contacts.stream()
                 .filter(c -> !c.getName().matches(nameFilter))
                 .collect(Collectors.toList());
+        ContactsWrapper contactsWrapper = new ContactsWrapper(filteredContacts);
+        return contactsWrapper;
     }
     
 }
