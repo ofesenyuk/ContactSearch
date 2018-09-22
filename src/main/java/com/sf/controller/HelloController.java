@@ -6,6 +6,7 @@
 package com.sf.controller;
 
 import com.sf.entity.Contact;
+import com.sf.model.ContactsWrapper;
 import com.sf.service.ContactService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class HelloController {
     }
     
     @GetMapping(value = "/contacts")
-    public List<Contact> getContactsRegular(
+    public ContactsWrapper getContactsRegular(
             @RequestParam("nameFilter") String nameFilter
     ) {
         return contactService.getContactsRegular(nameFilter);
