@@ -7,8 +7,6 @@ package com.sf.service;
 
 import com.sf.entity.Contact;
 import com.sf.model.ContactsWrapper;
-import com.sf.repository.ContactRepository;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -18,9 +16,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-//import reactor.core.publisher.Mono;
-
+import com.sf.repository.ContactRepository;
 /**
  *
  * @author OleksandrF
@@ -35,7 +31,6 @@ public class ContactService {
         this.contactRepository = contactRepository;
     }
     
-    @Transactional
     public Contact getContact(Long id) {
         return contactRepository.findById(id).orElse(null);
     }
