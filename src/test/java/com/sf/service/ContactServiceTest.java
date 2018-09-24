@@ -7,29 +7,23 @@ package com.sf.service;
 
 import com.sf.entity.Contact;
 import com.sf.model.ContactsWrapper;
-import java.util.Optional;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import com.sf.repository.ContactRepository;
 import com.sf.repository.test.TestRepository;
+import org.junit.*;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.support.AnnotationConfigContextLoader;
+
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  *
@@ -83,7 +77,7 @@ public class ContactServiceTest {
         String name = "test";
         Contact expResult = new Contact(id, name);
         Mockito.when(contactRepository.findById(Mockito.eq(id)))
-                .thenReturn(Optional.ofNullable(expResult));
+                .thenReturn(Optional.of(expResult));
         Contact result = contactService.getContact(id);
         assertEquals(expResult, result);
     }

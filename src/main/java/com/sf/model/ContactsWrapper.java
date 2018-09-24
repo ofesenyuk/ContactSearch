@@ -6,9 +6,10 @@
 package com.sf.model;
 
 import com.sf.entity.Contact;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  *

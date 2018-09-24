@@ -6,13 +6,12 @@
 package com.sf.repository;
 
 import com.sf.entity.Contact;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Future;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.scheduling.annotation.Async;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 /**
  *
