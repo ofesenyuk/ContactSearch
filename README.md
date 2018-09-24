@@ -14,3 +14,5 @@ password=nbuser
 should exist.
 Application created table "contacts" and fills it with test data.
 [![Build Status](https://travis-ci.org/ofesenyuk/ContactSearch.svg?branch=master)](https://travis-ci.org/ofesenyuk/ContactSearch)
+
+I found that class order {ContactServiceTestConfig.class, HelloControllerTestConfig.class} in HelloControllerTest is essential. This is because HelloControllerTestConfig ContactService Bean creation should override that of ContactServiceTestConfig. I left it for further investigation. 
