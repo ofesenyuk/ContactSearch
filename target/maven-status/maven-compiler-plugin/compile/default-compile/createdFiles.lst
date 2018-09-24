@@ -1,5 +1,7 @@
-com/sf/repository/ContactRepository.class
-com/sf/service/ContactService.class
-com/sf/SearchApplication.class
-com/sf/entity/Contact.class
-com/sf/controller/HelloController.class
+com\sf\controller\HelloController.class
+com\sf\model\ContactsWrapper.class
+com\sf\entity\Contact.class
+com\sf\repository\test\TestRepository.class
+com\sf\service\ContactService.class
+com\sf\SearchApplication.class
+com\sf\repository\ContactRepository.class

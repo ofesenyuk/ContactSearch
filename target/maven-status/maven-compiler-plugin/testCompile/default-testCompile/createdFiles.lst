@@ -1,1 +1,5 @@
-com/sf/SearchApplicationTests.class
+com\sf\SearchApplicationTests.class
+com\sf\service\ContactServiceTestConfig.class
+com\sf\controller\HelloControllerTest.class
+com\sf\controller\HelloControllerTestConfig.class
+com\sf\service\ContactServiceTest.class
