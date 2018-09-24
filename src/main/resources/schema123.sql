@@ -4,7 +4,7 @@
  */
 
 CREATE TABLE contacts (
-    id   INTEGER(64)      NOT NULL AUTO_INCREMENT,
+    id   INTEGER(64)  NOT NULL AUTO_INCREMENT,
     name VARCHAR(128) NOT NULL,
     PRIMARY KEY (id)
 );
